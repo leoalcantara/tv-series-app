@@ -6,17 +6,22 @@ class Series extends Component {
         series: []
     }
 
-    componentDidMount() {
-        fetch('http://api.tvmaze.com/search/shows?q=Vikings')
+  
+    onSeriesInputChange = e =>{
+        fetch(`http://api.tvmaze.com/search/shows?q=${e.target.value}`)
             .then(response => response.json())
             .then(json => this.setState({ series: json }));
+    
     }
-
 
     render() {
         return (
             <div>
-                O comprimento da nossa lista de séries - {this.state.series.length}
+                Foram encontrados {this.state.series.length} itens em nossa lista de séries
+                <div>
+                    <input type="text" onChange={this.onSeriesInputChange}/ >
+                </div>
+                
                 <SeriesList list={this.state.series}/>
             </div>
         )

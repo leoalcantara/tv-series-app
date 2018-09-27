@@ -1,13 +1,18 @@
 import React from 'react';
 import './index.css';
 
+const SeriesListsItem = ({series}) => (
+    <li>
+         {series.show.name}
+    </li>
+)
 
 const SeriesList = (props) => {
     return(
         <div>
             <ul className="series-list">
                 {props.list.map(series => (
-                    <li key={series.show.id}> {series.show.name}</li>
+                <SeriesListsItem series ={series} key={series.show.id}/>
                 ))}
             </ul>
         </div>
