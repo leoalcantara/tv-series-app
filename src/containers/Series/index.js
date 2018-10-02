@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Intro from '../../components/Intro';
 import SeriesList from '../../components/SeriesList';
 import Loader from '../../components/Loader'
 
@@ -20,8 +21,10 @@ class Series extends Component {
 
     render() {
         const {series, seriesName, isfetching} = this.state;
+        
         return (
-            <div>                
+            <div>   
+                <Intro message='Aqui você encontrará suas séries favoritas'/>             
                 <div>
                     <input 
                         value={seriesName}
