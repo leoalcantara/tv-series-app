@@ -17,19 +17,24 @@ class SingleSeries extends Component{
         const {show} = this.state;
         console.log(show);
         return(
-            <div>
+            <div >
               {show === null && <Loader/>}
               {
                 show !== null
                 &&
-                <div>
-                    <p>{show.name}</p>
-                    <p>Premiado - {show.premiered}</p>
-                    <p>Classificação - {show.rating.average}</p>
-                    <p>Episódios - {show._embedded.episodes.length}</p>
-                    <p>
-                        <img alt="show" src={show.image.medium}/>
-                    </p>
+                <div className="card card-body">
+                    <ul className=" list-group">
+                        <li className="list-group-item">
+                            <h3>{show.name}</h3>
+                        </li>
+                        <li className="list-group-item">  
+                          <img alt="show" src={show.image.medium}/>
+                        </li>
+                  
+                        <li className="list-group-item">Premiado - {show.premiered}</li>
+                        <li className="list-group-item">Classificação - {show.rating.average}</li>
+                        <li className="list-group-item">Episódios - {show._embedded.episodes.length}</li>
+                    </ul>
                 </div>
               }
             </div>
